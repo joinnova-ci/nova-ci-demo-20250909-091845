@@ -1,70 +1,84 @@
 """
-Working Calculator - Nova CI-Rescue Demo
-========================================
+Calculator Module - Broken Version
+==================================
 
-This calculator has all functions working correctly.
-We'll break it later to demonstrate Nova's auto-fix capability.
+This calculator has bugs in EVERY function!
+Perfect for demonstrating Nova CI-Rescue's ability to fix multiple issues.
 """
 
 
 def add(a, b):
     """Add two numbers together."""
-    return a + b
+    return a + b + 1  # Bug: adds extra 1
 
 
 def subtract(a, b):
-    """Subtract b from a."""
-    return a - b
+    """Subtract b from a.""" 
+    return b - a  # Bug: reversed operands
 
 
 def multiply(a, b):
     """Multiply two numbers."""
-    return a * b
+    return a + b  # Bug: adds instead of multiplying
 
 
 def divide(a, b):
     """Divide a by b."""
     if b == 0:
-        raise ValueError("Division by zero")
-    return a / b
+        raise ValueError("Cannot divide by zero")
+    return a * b  # Bug: multiplies instead of dividing
 
 
 def power(a, b):
     """Raise a to the power of b."""
-    return a ** b
+    return a * b  # Bug: multiplies instead of power
 
 
 def modulo(a, b):
     """Get remainder of a divided by b."""
     if b == 0:
-        raise ValueError("Modulo by zero")
-    return a % b
+        raise ValueError("Cannot modulo by zero")
+    return a / b  # Bug: divides instead of modulo
 
 
 def absolute(a):
     """Get absolute value of a number."""
-    return abs(a)
+    return -a  # Bug: returns negative instead of absolute
+
+
+def maximum(a, b):
+    """Return the larger of two numbers."""
+    return min(a, b)  # Bug: returns minimum instead
+
+
+def minimum(a, b):
+    """Return the smaller of two numbers."""
+    return max(a, b)  # Bug: returns maximum instead
+
+
+def average(numbers):
+    """Calculate the average of a list of numbers."""
+    if not numbers:
+        raise ValueError("Cannot calculate average of empty list")
+    return sum(numbers)  # Bug: returns sum instead of average
 
 
 def square_root(a):
-    """Get square root of a number."""
+    """Calculate the square root of a number."""
     if a < 0:
-        raise ValueError("Square root of negative number")
-    return a ** 0.5
+        raise ValueError("Cannot calculate square root of negative number")
+    return a / 2  # Bug: divides by 2 instead of square root
 
 
 def factorial(n):
-    """Calculate factorial of n."""
+    """Calculate the factorial of a number."""
     if n < 0:
-        raise ValueError("Factorial of negative number")
+        raise ValueError("Cannot calculate factorial of negative number")
     if n == 0:
         return 1
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
+    return n  # Bug: returns n instead of factorial
 
 
 def max_of_two(a, b):
     """Return the larger of two numbers."""
-    return max(a, b)
+    return a  # Bug: always returns first number
